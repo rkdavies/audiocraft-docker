@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  audiocraft:
+    build: .
+    container_name: audiocraft_server
+    ports:
+      - "7860:7860"
+    volumes:
+      # Map local output directory to save generated audio
+      - ./output:/app/output
+      # Map local models directory to cache HuggingFace downloads
+      - ./models:/root/.cache/huggingface
+    environment:
+      # Restrict CUDA visibility to the specific GPU
+      - CUDA_VISIBLE_DEVICES=0 
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              # Explicitly pin to the RTX A6000 (Change to '1' if it is the second GPU)
+              device_ids: ['0'] 
+              capabilities: [gpu]
+    restart: unless-stopped
