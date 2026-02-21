@@ -66,8 +66,8 @@ Modify `docker-compose.yaml` to change GPU device or other settings.
 │  │  │   Gradio UI (7860)      │  │  │
 │  │  └─────────────────────────┘  │  │
 │  │  ┌─────────────────────────┐  │  │
-│  │  │   MusicGen Model       │  │  │
-│  │  │   (GPU Accelerated)    │  │  │
+│  │  │   MusicGen Model        │  │  │
+│  │  │   (GPU Accelerated)     │  │  │
 │  │  └─────────────────────────┘  │  │
 │  └───────────────────────────────┘  │
 └─────────────────────────────────────┘
